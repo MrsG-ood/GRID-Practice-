@@ -1,0 +1,189 @@
+/*===================================================
+        Base Styles
+=====================================================*/
+/* html,  */
+body {
+    /* width: 100vw; */
+    height: 100vh;
+    margin: 0;
+}
+
+html{
+    background-color: #0a0a07;
+    font-family: 'Open Sans', sans-serif;
+    color: #0a0a07;
+  }
+
+  header{background-color: #addbc0;}
+  main{background-color: #f6d0da;}
+  aside{background-color:#e6db85;}
+  footer{background-color:#efac3d;}
+
+  .title {
+    font-weight: bold;
+    padding-left: .5rem;
+    font-size: 1rem;
+   /* text-align: center; */
+  }
+  li {
+    /* padding: .5rem; */
+    list-style-type: none;
+    font-size: 1rem;
+  }
+  a { 
+    text-decoration: none;
+    color: #0a0a07;
+  }
+  a:hover {font-weight: bold;}
+  
+  .text{
+    font-size: .75rem;
+    font-weight: normal;
+    padding: 1rem 1rem;
+    text-align: center;
+    line-height: 1rem;
+
+  }
+  
+  
+  
+  
+  /* ================================================================================
+            GRID
+  =================================================================================*/
+
+  
+  header {
+    grid-area: header;
+  }
+  main {
+    grid-area: main;
+    overflow:auto;
+  }
+  aside {
+    grid-area: aside;
+    overflow:auto;
+  }
+  footer {
+    grid-area: footer;
+    overflow:auto;
+  }
+  
+  .grid {
+    min-height: 100vh;
+    max-width: 100vw;
+    display: grid;
+    grid-template-columns: 2fr 1fr ;
+    grid-template-rows: 100px minmax(200px, 1fr) 100px ;
+    grid-gap: 15px;
+    grid-template-areas:
+      "header header "
+      "main aside"
+      "footer footer ";
+  }
+
+
+  /*===================================================
+      Navigation
+  =======================================================*/
+  
+
+
+      footer,
+      header{
+          display: grid;
+          align-items: center;
+          align-content: center;
+          grid-auto-flow: column;
+      }
+
+      .navFooter,
+      .navLinks{
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: repeat(auto, 1fr);
+        align-items: center; 
+        align-content: center;
+         justify-items: center;
+         justify-content: center;
+         justify-self: end;
+         grid-gap: 1rem;
+      }
+
+      li{padding-left: 1rem; }
+      li:last-child{padding-right: 1rem;}
+
+
+
+   /*===================================================
+Navigation BURGER MENU 
+  =======================================================*/
+  .burger div {
+    width: 44px;
+    height: 5px;
+    margin: .4rem;
+    
+    background-color: #0a0a07;
+  }
+  .burger {
+    display: none;
+    margin-left: 60vw;
+  }
+   /*===================================================
+          MEDIA QUERIES 
+  =======================================================*/
+
+  @media screen and (max-width: 768px){
+    .navLinks {
+      position: absolute;
+      right: 0px;
+      height: 92vh;
+      top: 8vh;
+      display: flex;
+      direction: column;
+      align-items: center;
+      width: 30vh;
+      /* transform: translateX(100%) */
+    }
+      .navLinks li {
+        opacity: 0;
+      }
+
+      .burger {display: block;}
+
+      .nav-active{transform: translateX(0%);
+      }
+
+      footer{
+        grid-auto-flow: row;
+
+      }
+      footer p {
+        justify-self: center;
+      }
+      .navFooter{
+        justify-self: center;
+        margin: 0;
+        padding: 0;
+      }
+      
+     
+      
+
+
+
+  }
+
+/*===================================================
+          Additional Changes to be made - 
+  =======================================================*/
+
+      /* add media queries for smaller screens- phones.
+      max-width 600px 
+      min-width: 768px
+      min-width: 992px
+      mind-width: 1200;
+
+      add @support and fallback layout using flexbox- KISS .
+      drop down hambuger JS or CSS? 
+      make header sticky?
